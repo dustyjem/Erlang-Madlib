@@ -8,7 +8,7 @@ It will:
 
 ## Video Link
 
-[Software Demo Video]()
+[Software Demo Video](https://youtu.be/bmxQptzuWt4)
 
 # Development Environment
 

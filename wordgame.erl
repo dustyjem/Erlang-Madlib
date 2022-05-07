@@ -25,10 +25,10 @@ wordie() ->
 
 
 chooseStoryType(happy) ->
-    io:fwrite("You chose Sad story\n"),
+    io:fwrite("You chose Happy story\n"),
     the_story();
 chooseStoryType(sad) ->
-    io:fwrite("You chose a Happy story\n"),
+    io:fwrite("You chose a Sad story\n"),
     the2_story().
 
     

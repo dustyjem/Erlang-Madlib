@@ -2,21 +2,29 @@
     	
     -export([wordie/0, chooseStoryType/1, the2_story/0, the_story/0, display/1, thankYou/0, welcomeTogame/0]).
 
+% welcomeTogame is the function that starts the game
 welcomeTogame() ->
     {ok, Choice} = io:read("Do you speak english: yes/no\n > "),
     display(Choice).
+
+% display is the function that displays the use choice which will be used to choose the story
 display(Choice) when Choice == "yes" ->
         io:fwrite("Welcome to game"),
         wordie(); 
-display(Choice) when Choice == "no" -> io:fwrite("We do not have another version of the game\n"),
+display(Choice) when Choice == "no" -> 
+    io:fwrite("We do not have another version of the game\n"),
+    
+% thankYou is the function that displays appreciation for starting the game
         thankYou().
 
+% wordie is the function that displays the story
 wordie() ->
     io:fwrite("Welcome to the My MadLib!\n"),
     io:fwrite("\n"),
     {ok, Name} = io:read("Enter your name: "),
     io:format("Thank you for entering your ~s\n", [Name]),
 
+% This function will choose the story type
     io:format("Enter story type: \n"),
     io:format("- Happy\n"),
     io:format("- Sad\n"),
@@ -24,6 +32,7 @@ wordie() ->
     chooseStoryType(list_to_atom(TypeOfStory)).
 
 
+% this function will choose the story type
 chooseStoryType(happy) ->
     io:fwrite("You chose Happy story\n"),
     the_story();
@@ -31,8 +40,10 @@ chooseStoryType(sad) ->
     io:fwrite("You chose a Sad story\n"),
     the2_story().
 
-    
+  
+% this function will display the happy story  
 
+% this is the first story
 
 the_story() ->
     {ok, Food} = io:read("Enter Food name: "),
@@ -57,8 +68,11 @@ chased the ~s all over school.\n
 ~s through the playground. \n
 Then she tripped on her ~s and \n
  the ~s escaped! Luckily ~s's \n
-friends were willing to share their ~s with her.", [Food, Names, Adjt, Noun, Sfood, Sname, Snoun, Verb, Sverb, Tverb, Snoun, Noun, Names, Food]).
+friends were willing to share their ~s with her.",
+[Food, Names, Adjt, Noun, Sfood, Sname, Snoun, Verb, Sverb, Tverb, Snoun, Noun, Names, Food]).
 
+
+% this is the prompt for second story
 the2_story() ->
     {ok, Food} = io:read("Enter Food name: "),
     {ok, Names} = io:read("Enter another name: "),
@@ -69,6 +83,7 @@ the2_story() ->
     {ok, Carname} = io:read("Enter a Carname: "),
 
 
+% this is the second story
     io:fwrite("Once upon a time there lived a very sad banana named ~s. \n
 lived in a in ~s. He was sad because he had no friends,\n
 but then he thought, How am I going to get friends \n
@@ -76,9 +91,12 @@ if I don't go looking for ? I am going to go out and look for some ~s.\n
 So put on his to ~s people and went out to . He was walking \n
 around when he met a nice lady banana called ~s. She said, \n
 Hello, my name is ~s. Do you want to go to ~s, and go on the ~s? said, \n
-OK, If you will be my friend. Yes! She replied. So ~s and ~s became good friends and wasn't sad anymore.\n
-Later on they got mugged, beaten, shot and an accident. The End!", [Names, Place, Food, Verb, Namef, Namef, Splace, Carname, Names, Namef]).
+OK, If you will be my friend. Yes! She replied. So ~s and ~s 
+became good friends and wasn't sad anymore.\n
+Later on they got mugged, beaten, shot and an accident. The End!",
+ [Names, Place, Food, Verb, Namef, Namef, Splace, Carname, Names, Namef]).
 
 thankYou() ->
     io:fwrite("Thank you for playing the game!\n").
-    
+
+% this is the end of the game
